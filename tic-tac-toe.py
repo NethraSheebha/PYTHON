@@ -50,6 +50,9 @@ def victory_for(board, sign):
             print("Computer won!\nBetter luck next time.")
         elif sign == 'O':
             print("Congratulations! You won!")
+    elif len(L) == 9:
+        print("It's a tie!")
+        victory = 'tie'
                 
 
 def draw_move(board):
@@ -77,11 +80,11 @@ while True:
     else:
         display_board(board)
         print("------")
-    while not victory:
+    while not victory or victory == 'tie':
         draw_move(board)
         print("------")
         victory_for(board,'X')
-        if victory:
+        if victory or victory == 'tie':
             break 
         enter_move(board) 
         print("------") 
